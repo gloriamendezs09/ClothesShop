@@ -4,6 +4,7 @@ import co.com.clothesShop.Clothes.services.Product;
 import co.com.clothesShop.Clothes.services.Shop;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
@@ -13,6 +14,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
+@CrossOrigin(origins = "http://localhost:4200/")
 @RestController
 public class ControllerShow {
 

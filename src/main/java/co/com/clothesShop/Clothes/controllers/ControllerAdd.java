@@ -8,21 +8,20 @@ import org.springframework.web.bind.annotation.*;
 import java.util.HashMap;
 import java.util.Map;
 
+@CrossOrigin(origins = "http://localhost:4200/")
 @RestController
 public class ControllerAdd {
 
-    //Con esta anotación se inicializa una instancia al objeto creado
-    //mediante la anotación Bean y que está almacenada en el contenedor de Spring
     @Autowired
     private Shop shop;
 
     @PostMapping("/add")
-    public Map<String, Object> add(@RequestBody Product product){
+    public String add(@RequestBody Product product){
         Map<String, Object> resultMap = new HashMap<String, Object>();
         resultMap.put("Code", 200);
         resultMap.put("Status", "success");
         resultMap.put("Message", "Data found");
         resultMap.put("Products", shop.addProduct(product));
-        return resultMap;
+        return "Hey there";
     }
 }

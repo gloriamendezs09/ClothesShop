@@ -8,15 +8,13 @@ import org.springframework.web.bind.annotation.*;
 import java.util.HashMap;
 import java.util.Map;
 
-//Tiene el mismo efecto que la anotación Bean
+@CrossOrigin(origins = "http://localhost:4200/")
 @RestController
 public class ControllerDelete {
 
     @Autowired
     private Shop shop;
 
-    //Se utiliza para indicar al proyecto cual va a ser la ruta utilizada por el navegador
-    //para acceder al método
     @PostMapping("/delete")
     public Map<String, Object> delete(@RequestBody int id){
         Map<String, Object> resultMap = new HashMap<String, Object>();
