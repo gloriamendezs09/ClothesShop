@@ -3,9 +3,9 @@ package co.com.clothesShop.Clothes.services;
 public class Product {
     int id;
     String name;
-    Float price;
+    double price;
 
-    public Product(String name, Float price) {
+    public Product(String name, double price) {
         this.name = name;
         this.price = price;
     }
@@ -26,7 +26,7 @@ public class Product {
         this.name = name;
     }
 
-    public Float getPrice() {
+    public double getPrice() {
         return price;
     }
 
