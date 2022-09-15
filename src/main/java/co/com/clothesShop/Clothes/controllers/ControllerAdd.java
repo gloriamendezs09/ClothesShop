@@ -15,7 +15,7 @@ public class ControllerAdd {
 
     @GetMapping("/add")
     public String add(){
-        int a = 10;
+        int a = 20;
         int b = 2;
 
         return ("La suma de los numeros " + a + " + " + b + " es: " + calculator.add(a, b));
