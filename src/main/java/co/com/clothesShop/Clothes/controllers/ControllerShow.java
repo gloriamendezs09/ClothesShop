@@ -21,7 +21,7 @@ public class ControllerShow {
         return shop.getProducts();
     }
 
-    @GetMapping("/show/{id}")
+    @GetMapping("/find/{id}")
     public Product showProductById(@PathVariable("id") int id){
         return shop.findProductById(id);
     }
