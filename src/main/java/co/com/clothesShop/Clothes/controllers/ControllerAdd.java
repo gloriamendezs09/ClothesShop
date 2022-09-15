@@ -1,9 +1,9 @@
 package co.com.clothesShop.Clothes.controllers;
 
+import co.com.clothesShop.Clothes.services.Product;
 import co.com.clothesShop.Clothes.services.Shop;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class ControllerAdd {
@@ -13,11 +13,9 @@ public class ControllerAdd {
     @Autowired
     private Shop shop;
 
-    @GetMapping("/add")
-    public String add(){
-        int a = 20;
-        int b = 2;
-
-        return ("La suma de los numeros " + a + " + " + b + " es: " + calculator.add(a, b));
+    @PostMapping("/add")
+    public Product add(@RequestBody Product product){
+        shop.addProduct(product);
+        return product;
     }
 }
