@@ -1,20 +1,28 @@
 package co.com.clothesShop.Clothes.services;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Shop {
 
-    public int add(String name, ){
-        return numberA + numberB;
+    private List<Product> products;
+
+    public Shop() {
+        this.products = new ArrayList<>();
     }
 
-    public int substract (int numberA, int numberB){
-        return numberA - numberB;
+    public List<Product> getProducts() {
+        return products;
     }
 
-    public int multiply(int numberA, int numberB){
-        return numberA * numberB;
+    public void setProducts(List<Product> products) {
+        this.products = products;
     }
 
-    public int divide(int numberA, int numberB){
-        return numberA / numberB;
+    public Product findProductById(int id){
+        for (Product p: products)
+            if(p.getId() == id)
+                return p;
+        return null;
     }
 }
