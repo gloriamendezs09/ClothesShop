@@ -8,7 +8,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.Objects;
 
 @RestController
 public class ControllerShow {
@@ -17,12 +20,22 @@ public class ControllerShow {
     private Shop shop;
 
     @GetMapping("/show")
-    public List<Product> showProducts(){
-        return shop.getProducts();
+    public Map<String, Object> showProducts(){
+        Map<String, Object> resultMap = new HashMap<String, Object>();
+        resultMap.put("Code", 200);
+        resultMap.put("Status", "success");
+        resultMap.put("Message", "Data found");
+        resultMap.put("Products", shop.getProducts());
+        return resultMap;
     }
 
     @GetMapping("/find/{id}")
-    public Product showProductById(@PathVariable("id") int id){
-        return shop.findProductById(id);
+    public Map<String, Object> showProductById(@PathVariable("id") int id){
+        Map<String, Object> resultMap = new HashMap<String, Object>();
+        resultMap.put("Code", 200);
+        resultMap.put("Status", "success");
+        resultMap.put("Message", "Data found");
+        resultMap.put("Product", shop.findProductById(id));
+        return resultMap;
     }
 }

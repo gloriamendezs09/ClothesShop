@@ -5,6 +5,9 @@ import co.com.clothesShop.Clothes.services.Shop;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
+import java.util.Map;
+
 @RestController
 public class ControllerAdd {
 
@@ -14,8 +17,12 @@ public class ControllerAdd {
     private Shop shop;
 
     @PostMapping("/add")
-    public Product add(@RequestBody Product product){
-        shop.addProduct(product);
-        return product;
+    public Map<String, Object> add(@RequestBody Product product){
+        Map<String, Object> resultMap = new HashMap<String, Object>();
+        resultMap.put("Code", 200);
+        resultMap.put("Status", "success");
+        resultMap.put("Message", "Data found");
+        resultMap.put("Products", shop.addProduct(product));
+        return resultMap;
     }
 }
