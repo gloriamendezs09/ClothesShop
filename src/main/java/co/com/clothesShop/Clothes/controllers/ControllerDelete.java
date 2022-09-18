@@ -21,7 +21,7 @@ public class ControllerDelete {
         resultMap.put("Code", 200);
         resultMap.put("Status", "success");
         resultMap.put("Message", "Data found");
-        resultMap.put("Products", shop.deleteProduct(id));
+        resultMap.put("Product", shop.deleteProduct(id));
         return resultMap;
     }
 }
