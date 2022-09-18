@@ -16,12 +16,15 @@ public class ControllerAdd {
     private Shop shop;
 
     @PostMapping("/add")
-    public String add(@RequestBody Product product){
+    public Map<String, Object> add(@RequestBody Product product){
         Map<String, Object> resultMap = new HashMap<String, Object>();
         resultMap.put("Code", 200);
         resultMap.put("Status", "success");
         resultMap.put("Message", "Data found");
-        resultMap.put("Products", shop.addProduct(product));
-        return "Hey there";
+        if (product.getId() != 0)
+            resultMap.put("Product", shop.modifyProduct(product));
+        else
+            resultMap.put("Product", shop.addProduct(product));
+        return resultMap;
     }
 }
