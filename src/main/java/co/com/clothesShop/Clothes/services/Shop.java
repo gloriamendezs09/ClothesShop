@@ -31,7 +31,10 @@ public class Shop {
     }
 
     public Product addProduct(Product product){
-        product.setId(products.get(products.size()).getId() + 1);
+        if (products.size() > 0)
+            product.setId(products.get(products.size() - 1).getId() + 1);
+        else
+            product.setId(1);
         this.products.add(product);
         return product;
     }
